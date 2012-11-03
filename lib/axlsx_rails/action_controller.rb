@@ -18,8 +18,8 @@ ActionController::Renderers.add :xlsx do |filename, options|
 end
 
 # For respond_to default
-class ActionController::Responder
-  def to_xlsx
-    controller.render :xlsx => controller.action_name
-  end
-end
+# class ActionController::Responder
+#   def to_xlsx
+#     controller.render :xlsx => controller.action_name
+#   end
+# end
