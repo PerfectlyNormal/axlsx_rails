@@ -11,9 +11,10 @@ ActionController::Renderers.add :xlsx do |filename, options|
   download_name = options.delete(:filename) || "#{filename}.xlsx"
   download_name += ".xlsx" unless download_name =~ /\.xlsx$/
 
-  send_data render_to_string(options), :filename => download_name, :type => Mime::XLSX, :disposition => disposition
   Rails.logger.debug "  disposition is #{disposition}"
   Rails.logger.debug "  download_name is #{download_name}"
+
+  send_data render_to_string(options), filename: download_name, type: Mime::XLSX, disposition: disposition
 end
 
 # For respond_to default
